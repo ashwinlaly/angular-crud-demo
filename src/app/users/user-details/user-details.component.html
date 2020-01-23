@@ -1,0 +1,19 @@
+
+
+<div>
+
+    <form [formGroup]="userForm">
+
+        Name : <input type="text" name="name" formControlName="name" /> <br/>
+        
+        Email : <input type="email" name="email" formControlName="email"/> <br/>
+        
+        <input type="submit" name="save" value="save" (click)="saveuser()" *ngIf="!updateState"/>
+
+        <button (click)="updateuser()" *ngIf="updateState">Update</button>
+
+    </form>
+    
+    <app-user-listing [users]=users (emitter)="edituser($event)" (deleteEmitter)="deleteuser($event)"></app-user-listing>
+
+</div>
